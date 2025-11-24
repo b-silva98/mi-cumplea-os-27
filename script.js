@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Actualizar fecha en el hero
+  document.getElementById('dateText').textContent = 'Domingo, 7 de Diciembre • 21:00 hs';
+
   // Crear papel picado rojo y blanco
   function createConfetti() {
     const confettiContainer = document.createElement('div');
@@ -62,13 +65,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Tu número de teléfono (con código de país)
   const phoneNumber = "5493886479127";
   
-  // Control de Música
+  // Control de Música - REPRODUCCIÓN AUTOMÁTICA
   const musicToggle = document.getElementById("musicToggle");
   const musicIcon = document.getElementById("musicIcon");
   const musicText = document.getElementById("musicText");
   const backgroundMusic = document.getElementById("backgroundMusic");
   
-  let isPlaying = false;
+  let isPlaying = true; // Iniciar como reproduciéndose
   
   // Función para controlar la música
   function toggleMusic() {
@@ -85,10 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
         isPlaying = true;
       }).catch(error => {
         console.log("Error al reproducir música:", error);
-        // Si hay error, mostrar alerta solo si el usuario intentó reproducir manualmente
-        if (!isPlaying) {
-          alert("No se pudo reproducir la música automáticamente. Haz clic en 'Reproducir' para intentarlo nuevamente.");
-        }
+        alert("No se pudo reproducir la música. Haz clic en 'Reproducir' para intentarlo nuevamente.");
       });
     }
   }
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Configurar el volumen (opcional, entre 0 y 1)
       backgroundMusic.volume = 0.7;
       
-      // Intentar reproducción automática
+      // Intentar reproducción automática inmediata
       const playPromise = backgroundMusic.play();
       
       if (playPromise !== undefined) {
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
           musicText.textContent = " Reproducir";
           isPlaying = false;
           
-          // Mostrar mensaje informativo (opcional)
+          // Mostrar mensaje informativo
           console.log("La música no pudo reproducirse automáticamente. El usuario debe interactuar primero.");
         });
       }
@@ -125,10 +125,10 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Event listener para el control de música
   if (musicToggle && backgroundMusic) {
-    musicToggle.addEventListener("click", toggleMusic);
+    // Intentar reproducción automática inmediatamente
+    autoPlayMusic();
     
-    // Intentar reproducción automática después de un pequeño delay
-    setTimeout(autoPlayMusic, 1000);
+    musicToggle.addEventListener("click", toggleMusic);
     
     // También intentar cuando el usuario haga cualquier interacción
     document.addEventListener('click', function firstInteraction() {
@@ -154,6 +154,37 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // CONTADOR REGRESIVO REAL - 7 de Diciembre 2025, 21:00 hs
+  function updateCountdown() {
+    const eventDate = new Date('2025-12-07T21:00:00');
+    const now = new Date();
+    
+    const timeDiff = eventDate.getTime() - now.getTime();
+    
+    if (timeDiff > 0) {
+      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+      
+      // Actualizar elementos del DOM
+      document.getElementById('days').textContent = days.toString().padStart(2, '0');
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    } else {
+      // Si ya pasó la fecha
+      document.getElementById('days').textContent = '00';
+      document.getElementById('hours').textContent = '00';
+      document.getElementById('minutes').textContent = '00';
+      document.getElementById('seconds').textContent = '00';
+    }
+  }
+  
+  // Actualizar contador inmediatamente y cada segundo
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
   
   // RSVP form submission
   const form = document.getElementById("rsvpForm");
@@ -162,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Actualizar enlace de WhatsApp por defecto
   function updateWhatsAppLink(message = "") {
-    const defaultMessage = message || "Hola! Confirmo mi asistencia a la fiesta de cumpleaños. ¡Nos vemos!";
+    const defaultMessage = message || "Hola! Confirmo mi asistencia a la fiesta de cumpleaños del 7 de Diciembre. ¡Nos vemos!";
     whatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
   }
   
@@ -184,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
       else if (guests === "3") guestText = "3 acompañantes";
       else if (guests === "4") guestText = "4 o más acompañantes";
       
-      const text = `¡Hola! Soy ${name} y confirmo mi asistencia a tu cumpleaños. ${guestText}. ${msg ? `Mensaje: ${msg}` : ''}`;
+      const text = `¡Hola! Soy ${name} y confirmo mi asistencia a tu cumpleaños del 7 de Diciembre. ${guestText}. ${msg ? `Mensaje: ${msg}` : ''}`;
       
       // Update WhatsApp link with custom message
       updateWhatsAppLink(text);
