@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación - 27 años</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="vh-100 d-flex flex-column m-0 p-0">
+  <!-- Control de Música -->
+  <div class="music-player">
+    <button id="musicToggle" class="btn btn-outline-danger btn-sm">
+      <i class="bi bi-pause-fill" id="musicIcon"></i>
+      <span id="musicText"> Música</span>
+    </button>
+    <audio id="backgroundMusic" loop>
+      <source src="./music/videoplayback.m4a" type="audio/mpeg">
+      <source src="./music/musica-fiesta.ogg" type="audio/ogg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+  </div>
+
+  <main class="container-fluid p-0 mobile-invite bg-light flex-grow-1">
+    <!-- HERO / HOME -->
+    <section class="section-hero text-center position-relative overflow-hidden">
+      <div class="river-band"></div>
+      <div class="hero-inner py-4">
+        <h1 class="display-5 title text-uppercase">¡27 años y la fiesta es monumental!</h1>
+        <p class="lead mb-1">Te invito a celebrar mi cumpleaños con un asado y cervezas.</p>
+        <p class="meta small mb-3" id="dateText">Sábado, 15 de [Mes] • 21:00 hs</p>
+
+        <div class="profile-container mx-auto mb-3 position-relative">
+          <div class="profile">
+            <img src="./img/ppp.png" alt="Foto del anfitrión" class="rounded-circle img-fluid" id="profilePic">
+          </div>
+          <!-- Logo de River Plate -->
+          <div class="river-logo">
+            <img src="./img/logo-river.png" alt="River Plate" class="img-fluid">
+          </div>
+        </div>
+
+        <div class="row icons-row text-center gx-2 justify-content-center mb-3">
+          <div class="col-3">
+            <a href="#" class="nav-icon" data-bs-toggle="modal" data-bs-target="#homeModal">
+              <i class="bi bi-house-fill"></i>
+              <div class="small">Home</div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="#" class="nav-icon" data-bs-toggle="modal" data-bs-target="#whereModal">
+              <i class="bi bi-geo-alt-fill"></i>
+              <div class="small">¿Dónde es?</div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="#" class="nav-icon" data-bs-toggle="modal" data-bs-target="#rsvpModal">
+              <i class="bi bi-calendar-check-fill"></i>
+              <div class="small">Confirmación</div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="#" class="nav-icon" data-bs-toggle="modal" data-bs-target="#giftsModal">
+              <i class="bi bi-gift-fill"></i>
+              <div class="small">Regalos</div>
+            </a>
+          </div>
+        </div>
+
+        <button class="btn btn-accent btn-lg shadow-sm" data-bs-toggle="modal" data-bs-target="#rsvpModal">
+          Confirmar Asistencia
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Home -->
+  <div class="modal fade" id="homeModal" tabindex="-1" aria-labelledby="homeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="homeModalLabel">¡Bienvenido!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>¡Hola! Estás invitado a celebrar mis 27 años.</p>
+          <p><strong>Fecha:</strong> Sábado, 15 de [Mes]</p>
+          <p><strong>Hora:</strong> 21:00 hs</p>
+          <p><strong>Lugar:</strong> Mi casa</p>
+          <p>¡Espero que puedas venir a compartir este día especial conmigo!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal ¿Dónde es? -->
+  <div class="modal fade" id="whereModal" tabindex="-1" aria-labelledby="whereModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="whereModalLabel">¿Dónde es la fiesta?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>La fiesta será en mi casa:</p>
+          <p><strong>Dirección:</strong> Calle Falsa 123, Ciudad, Provincia</p>
+          <p><strong>Referencias:</strong> Cerca del parque central, casa con reja negra.</p>
+          
+          <div class="map-link bg-light p-3 text-center mt-3 rounded">
+            <i class="bi bi-map display-4 text-muted"></i>
+            <p class="mt-2">Ubicación en Google Maps</p>
+            <a href="https://maps.app.goo.gl/nmjVGrN9gYRNAiGs9" class="btn btn-outline-primary btn-sm mt-2" target="_blank">
+              <i class="bi bi-geo-alt"></i> Ver en Google Maps
+            </a>
+          </div>
+          
+          <div class="mt-4">
+            <h6><i class="bi bi-car-front"></i> Cómo llegar:</h6>
+            <p class="small mb-1">- Colectivos: Líneas 15, 23 y 45</p>
+            <p class="small mb-1">- Estacionamiento: Disponible en la calle</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal RSVP -->
+  <div class="modal fade" id="rsvpModal" tabindex="-1" aria-labelledby="rsvpModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rsvpModalLabel">Confirmar Asistencia</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Por favor confirma tu asistencia para poder organizar mejor la fiesta.</p>
+          
+          <form id="rsvpForm">
+            <div class="mb-3">
+              <label for="nameInput" class="form-label">Tu nombre</label>
+              <input type="text" class="form-control" id="nameInput" placeholder="Escribe tu nombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="guestsInput" class="form-label">Número de acompañantes</label>
+              <select class="form-select" id="guestsInput">
+                <option value="0" selected>Vengo solo/a</option>
+                <option value="1">1 acompañante</option>
+                <option value="2">2 acompañantes</option>
+                <option value="3">3 acompañantes</option>
+                <option value="4">4 o más acompañantes</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="msgInput" class="form-label">Mensaje adicional (opcional)</label>
+              <textarea class="form-control" id="msgInput" rows="2" placeholder="Alergias, preferencias, etc."></textarea>
+            </div>
+          </form>
+          
+          <div class="d-grid gap-2 mt-4">
+            <button type="submit" form="rsvpForm" class="btn btn-accent" id="submitRsvp">
+              <i class="bi bi-check-circle"></i> Confirmar Asistencia
+            </button>
+            <a id="whatsappLink" class="btn btn-success" href="#" target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp"></i> Confirmar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Regalos -->
+  <div class="modal fade" id="giftsModal" tabindex="-1" aria-labelledby="giftsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="giftsModalLabel">Regalos / Información Extra</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Tu presencia es el mejor regalo.</strong> Realmente lo más importante para mí es que vengas a compartir este momento.</p>
+          
+          <div class="alert alert-info mt-3">
+            <h6><i class="bi bi-info-circle"></i> Si igualmente querés traer algo:</h6>
+            <ul class="mb-0 mt-2">
+              <li>Preferimos bebidas (cerveza, vino, gaseosas)</li>
+              <li>O una contribución para el asado</li>
+            </ul>
+          </div>
+          
+          <div class="mt-4">
+            <h6><i class="bi bi-tshirt"></i> Dress code:</h6>
+            <p class="mb-0">Casual — con rojo si querés sumarte al ambiente festivo.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

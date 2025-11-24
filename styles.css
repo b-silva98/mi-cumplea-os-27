@@ -1,0 +1,465 @@
+:root {
+  --accent-red: #b60b10;
+  --accent-red-strong: #a10406;
+  --text-dark: #333333;
+  --muted: #6c757d;
+}
+
+/* Reset body for mobile-first */
+body {
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--text-dark);
+  background: #f8f9fa;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.mobile-invite {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Control de Música */
+.music-player {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.music-player .btn {
+  border-radius: 25px;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* HERO */
+.section-hero {
+  background: white;
+  border-radius: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.river-band {
+  position: absolute;
+  left: -50%;
+  top: -40px;
+  width: 200%;
+  height: 140px;
+  background: linear-gradient(
+    90deg,
+    transparent 0,
+    var(--accent-red) 30%,
+    var(--accent-red) 70%,
+    transparent 100%
+  );
+  transform: rotate(-20deg);
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 20px 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  color: var(--accent-red-strong);
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+
+.lead {
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+/* Contenedor del perfil con logo */
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* IMAGEN AGRANDADA */
+.profile img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo de River Plate */
+.river-logo {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--accent-red);
+  z-index: 10;
+}
+
+.river-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.icons-row {
+  margin: 25px 0;
+}
+
+.icons-row .nav-icon {
+  display: block;
+  color: var(--accent-red);
+  text-decoration: none;
+  padding: 8px 5px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.icons-row .nav-icon:hover {
+  background-color: rgba(182, 11, 16, 0.1);
+  transform: translateY(-2px);
+}
+
+.icons-row .nav-icon i {
+  font-size: 1.4rem;
+  background: #fff;
+  padding: 12px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.icons-row .nav-icon .small {
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+/* Buttons */
+.btn-accent {
+  background: var(--accent-red);
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+  background: var(--accent-red-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(166, 6, 10, 0.3);
+}
+
+.btn-outline-accent {
+  border: 2px solid var(--accent-red);
+  color: var(--accent-red);
+  background: #fff;
+  font-weight: 600;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-accent:hover {
+  background: var(--accent-red);
+  color: #fff;
+}
+
+/* Modals */
+.modal-content {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  border-bottom: 1px solid #eee;
+  padding: 20px 20px 10px;
+}
+
+.modal-title {
+  font-family: "Montserrat", sans-serif;
+  color: var(--accent-red-strong);
+  font-weight: 700;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  border-top: 1px solid #eee;
+  padding: 15px 20px;
+}
+
+/* Form styles */
+.form-control, .form-select {
+  border-radius: 10px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--accent-red);
+  box-shadow: 0 0 0 0.2rem rgba(182, 11, 16, 0.25);
+}
+
+/* Alert */
+.alert-info {
+  background-color: rgba(182, 11, 16, 0.1);
+  border-color: rgba(182, 11, 16, 0.2);
+  color: var(--text-dark);
+  border-radius: 10px;
+}
+
+/* Map link */
+.map-link {
+  border-radius: 10px;
+  border: 2px solid #eee;
+}
+
+/* WhatsApp button */
+.btn-success {
+  background: #25D366;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background: #20bd5c;
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .hero-inner {
+    padding: 15px 10px;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .lead {
+    font-size: 0.95rem;
+  }
+  
+  /* Ajustes para móviles */
+  .profile img {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .river-logo {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .music-player {
+    top: 15px;
+    right: 15px;
+  }
+  
+  .music-player .btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .icons-row .nav-icon i {
+    font-size: 1.3rem;
+    padding: 10px;
+  }
+  
+  .modal-dialog {
+    margin: 20px 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.2rem;
+  }
+  
+  .hero-inner {
+    padding: 10px 5px;
+  }
+  
+  /* Ajustes para móviles muy pequeños */
+  .profile img {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .river-logo {
+    width: 45px;
+    height: 45px;
+    bottom: 8px;
+    right: 8px;
+  }
+  
+  .icons-row .nav-icon .small {
+    font-size: 0.7rem;
+  }
+}
+
+/* Safe area for notched phones */
+@supports(padding: max(0px)) {
+  .hero-inner, .modal-dialog {
+    padding-left: max(15px, env(safe-area-inset-left));
+    padding-right: max(15px, env(safe-area-inset-right));
+  }
+  
+  .music-player {
+    right: max(20px, env(safe-area-inset-right));
+  }
+}
+
+/* Animación de Papel Picado - Solo rojo y blanco */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  opacity: 0.8;
+  animation: confetti-fall linear forwards;
+}
+
+/* Solo colores rojo y blanco */
+.confetti:nth-child(odd) {
+  background: #b60b10; /* Rojo principal */
+}
+
+.confetti:nth-child(even) {
+  background: #ffffff; /* Blanco puro */
+}
+
+.confetti:nth-child(3n) {
+  background: #ff6b6b; /* Rojo claro */
+}
+
+.confetti:nth-child(5n) {
+  background: #f8f9fa; /* Blanco ligeramente grisáceo */
+}
+
+.confetti:nth-child(7n) {
+  background: #a10406; /* Rojo oscuro */
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Variaciones en la animación para diferentes piezas */
+.confetti:nth-child(7n) {
+  animation-duration: 4s;
+  animation-delay: 0.5s;
+}
+
+.confetti:nth-child(7n+1) {
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+
+.confetti:nth-child(7n+2) {
+  animation-duration: 6s;
+  animation-delay: 1.5s;
+}
+
+.confetti:nth-child(7n+3) {
+  animation-duration: 4.5s;
+  animation-delay: 0.2s;
+}
+
+.confetti:nth-child(7n+4) {
+  animation-duration: 5.5s;
+  animation-delay: 0.8s;
+}
+
+.confetti:nth-child(7n+5) {
+  animation-duration: 4.8s;
+  animation-delay: 1.2s;
+}
+
+/* Formas diferentes de papel picado */
+.confetti:nth-child(odd) {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Diamante */
+}
+
+.confetti:nth-child(even) {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); /* Cuadrado */
+}
+
+.confetti:nth-child(3n) {
+  clip-path: circle(50% at 50% 50%); /* Círculo */
+}
+
+.confetti:nth-child(5n) {
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); /* Estrella */
+}
+
+.confetti:nth-child(7n) {
+  clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%); /* Cruz */
+}
+
+/* Efectos de sombra para dar profundidad */
+.confetti:nth-child(odd) {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.confetti:nth-child(even) {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
