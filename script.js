@@ -155,9 +155,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // CONTADOR REGRESIVO REAL - 7 de Diciembre 2025, 21:00 hs
+  // CONTADOR REGRESIVO REAL - 8 de Diciembre 2025 (TU CUMPLEAÑOS)
   function updateCountdown() {
-    const eventDate = new Date('2025-12-07T21:00:00');
+    const eventDate = new Date('2025-12-08T00:00:00'); // 8 de Diciembre 2025
     const now = new Date();
     
     const timeDiff = eventDate.getTime() - now.getTime();
@@ -186,62 +186,46 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCountdown();
   setInterval(updateCountdown, 1000);
   
-  // RSVP form submission
+  // RSVP form submission - SIMPLIFICADO
   const form = document.getElementById("rsvpForm");
   const submitBtn = document.getElementById("submitRsvp");
-  const whatsappLink = document.getElementById("whatsappLink");
-  
-  // Actualizar enlace de WhatsApp por defecto
-  function updateWhatsAppLink(message = "") {
-    const defaultMessage = message || "Hola! Confirmo mi asistencia a la fiesta de cumpleaños del 7 de Diciembre. ¡Nos vemos!";
-    whatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
-  }
-  
-  // Inicializar enlace por defecto
-  updateWhatsAppLink();
   
   if (form && submitBtn) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       
       const name = document.getElementById("nameInput").value || "Invitado";
-      const guests = document.getElementById("guestsInput").value || "0";
       const msg = document.getElementById("msgInput").value || "";
       
-      // Build confirmation message
-      let guestText = "Vengo solo/a";
-      if (guests === "1") guestText = "1 acompañante";
-      else if (guests === "2") guestText = "2 acompañantes";
-      else if (guests === "3") guestText = "3 acompañantes";
-      else if (guests === "4") guestText = "4 o más acompañantes";
+      // Build confirmation message - MÁS SIMPLE
+      const confirmationMsg = msg 
+        ? `¡Hola! Soy ${name} y confirmo mi asistencia a tu fiesta del 7 de Diciembre. ${msg}`
+        : `¡Hola! Soy ${name} y confirmo mi asistencia a tu fiesta del 7 de Diciembre. ¡Nos vemos!`;
       
-      const text = `¡Hola! Soy ${name} y confirmo mi asistencia a tu cumpleaños del 7 de Diciembre. ${guestText}. ${msg ? `Mensaje: ${msg}` : ''}`;
-      
-      // Update WhatsApp link with custom message
-      updateWhatsAppLink(text);
+      // Open WhatsApp directly
+      const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(confirmationMsg)}`;
+      window.open(waLink, "_blank");
       
       // Show success feedback
-      submitBtn.innerHTML = '<i class="bi bi-check2"></i> ¡Confirmado!';
+      submitBtn.innerHTML = '<i class="bi bi-check2"></i> ¡Redirigiendo a WhatsApp!';
       submitBtn.classList.remove('btn-accent');
       submitBtn.classList.add('btn-success');
       submitBtn.disabled = true;
       
-      // Close modal after 2 seconds
+      // Close modal after 1.5 seconds
       setTimeout(() => {
         const modal = bootstrap.Modal.getInstance(document.getElementById('rsvpModal'));
         modal.hide();
         
         // Reset button after modal closes
         setTimeout(() => {
-          submitBtn.innerHTML = '<i class="bi bi-check-circle"></i> Confirmar Asistencia';
+          submitBtn.innerHTML = '<i class="bi bi-check-circle"></i> Confirmar por WhatsApp';
           submitBtn.classList.remove('btn-success');
           submitBtn.classList.add('btn-accent');
           submitBtn.disabled = false;
           form.reset();
-          // Restore default WhatsApp link
-          updateWhatsAppLink();
         }, 500);
-      }, 2000);
+      }, 1500);
     });
   }
   

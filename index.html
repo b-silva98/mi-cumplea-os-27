@@ -34,8 +34,8 @@
       <div class="river-band"></div>
       <div class="hero-inner py-4">
         <h1 class="display-5 title text-uppercase">¡27 años y la fiesta es monumental!</h1>
-        <p class="lead mb-1">Te invito a celebrar mi cumpleaños con un asado y cervezas.</p>
-        <p class="meta small mb-3" id="dateText">Domingo, 7 de Diciembre • 21:00 hs</p>
+        <p class="lead mb-1">Te invito a celebrar mi cumpleaños</p>
+        <p class="meta small mb-3" id="dateText">SSS</p>
 
         <div class="profile-container mx-auto mb-3 position-relative">
           <div class="profile">
@@ -91,8 +91,8 @@
         </div>
         <div class="modal-body">
           <p>¡Hola! Estás invitado a celebrar mis 27 años.</p>
-          <p><strong>Fecha:</strong> Domingo, 7 de Diciembre 2025</p>
-          <p><strong>Hora:</strong> 21:00 hs</p>
+          <p><strong>Fiesta:</strong> Domingo, 7 de Diciembre 2025 - 21:00 hs</p>
+          <p><strong>Cumpleaños:</strong> Lunes, 8 de Diciembre 2025</p>
           <p><strong>Lugar:</strong> Mi casa - Barrio 30 de Octubre</p>
           <p>¡Espero que puedas venir a compartir este día especial conmigo!</p>
         </div>
@@ -112,30 +112,62 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center">
-          <div class="calendar-container mb-4">
-            <div class="calendar-header bg-danger text-white py-3 rounded-top">
-              <h4 class="mb-0 fw-bold">DICIEMBRE 2025</h4>
-            </div>
-            <div class="calendar-body bg-light py-4">
-              <div class="calendar-date-display mb-3">
-                <div class="date-number display-1 fw-bold text-danger">7</div>
-                <div class="date-info">
-                  <div class="day-name h5 text-muted">DOMINGO</div>
-                  <div class="month-year h6 text-dark">DICIEMBRE 2025</div>
+          <!-- Cartel dividido -->
+          <div class="row g-3 mb-4">
+            <!-- Fiesta -->
+            <div class="col-md-6">
+              <div class="calendar-container h-100">
+                <div class="calendar-header bg-danger text-white py-3 rounded-top">
+                  <h6 class="mb-0 fw-bold">FIESTA</h6>
+                </div>
+                <div class="calendar-body bg-light py-3">
+                  <div class="calendar-date-display mb-2">
+                    <div class="date-number display-6 fw-bold text-danger">7</div>
+                    <div class="date-info">
+                      <div class="day-name h6 text-muted">DOMINGO</div>
+                      <div class="month-year small text-dark">DICIEMBRE 2025</div>
+                    </div>
+                  </div>
+                  <div class="time-display">
+                    <div class="clock-icon mb-1">
+                      <i class="bi bi-clock-fill text-danger"></i>
+                    </div>
+                    <div class="time-text h6 text-dark">21:00 HS</div>
+                    <div class="time-note small text-muted">¡Nos juntamos!</div>
+                  </div>
                 </div>
               </div>
-              <div class="time-display">
-                <div class="clock-icon mb-2">
-                  <i class="bi bi-clock-fill text-danger display-6"></i>
+            </div>
+            
+            <!-- Cumpleaños -->
+            <div class="col-md-6">
+              <div class="calendar-container h-100">
+                <div class="calendar-header bg-warning text-dark py-3 rounded-top">
+                  <h6 class="mb-0 fw-bold">CUMPLEAÑOS</h6>
                 </div>
-                <div class="time-text h4 text-dark">21:00 HS</div>
-                <div class="time-note small text-muted">¡Nos juntamos a festejar!</div>
+                <div class="calendar-body bg-light py-3">
+                  <div class="calendar-date-display mb-2">
+                    <div class="date-number display-6 fw-bold text-warning">8</div>
+                    <div class="date-info">
+                      <div class="day-name h6 text-muted">LUNES</div>
+                      <div class="month-year small text-dark">DICIEMBRE 2025</div>
+                    </div>
+                  </div>
+                  <div class="time-display">
+                    <div class="cake-icon mb-1">
+                      <i class="bi bi-balloon-fill text-warning"></i>
+                    </div>
+                    <div class="time-text h6 text-dark">¡27 AÑOS!</div>
+                    <div class="time-note small text-muted">Mi cumpleaños</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           
+          <!-- Contador regresivo para el 8 de Diciembre -->
           <div class="event-countdown mt-4 p-3 bg-danger text-white rounded">
-            <h6 class="mb-2">¡FALTAN SOLO:</h6>
+            <h6 class="mb-2">¡CUENTA REGRESIVA PARA MIS 27 AÑOS!</h6>
             <div id="countdown" class="countdown-timer">
               <div class="countdown-item">
                 <span id="days" class="countdown-number">0</span>
@@ -210,7 +242,7 @@
     </div>
   </div>
 
-  <!-- Modal RSVP -->
+  <!-- Modal RSVP - SIMPLIFICADO -->
   <div class="modal fade" id="rsvpModal" tabindex="-1" aria-labelledby="rsvpModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -219,36 +251,27 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Por favor confirma tu asistencia para poder organizar mejor la fiesta.</p>
+          <p>¡Confirmá tu asistencia con un solo clic! Solo necesitamos tu nombre o apodo.</p>
           
           <form id="rsvpForm">
             <div class="mb-3">
-              <label for="nameInput" class="form-label">Tu nombre</label>
-              <input type="text" class="form-control" id="nameInput" placeholder="Escribe tu nombre" required>
+              <label for="nameInput" class="form-label">Tu nombre o apodo</label>
+              <input type="text" class="form-control" id="nameInput" placeholder="¿Cómo te gusta que te digan?" required>
             </div>
             <div class="mb-3">
-              <label for="guestsInput" class="form-label">Número de acompañantes</label>
-              <select class="form-select" id="guestsInput">
-                <option value="0" selected>Vengo solo/a</option>
-                <option value="1">1 acompañante</option>
-                <option value="2">2 acompañantes</option>
-                <option value="3">3 acompañantes</option>
-                <option value="4">4 o más acompañantes</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="msgInput" class="form-label">Mensaje adicional (opcional)</label>
-              <textarea class="form-control" id="msgInput" rows="2" placeholder="Alergias, preferencias, etc."></textarea>
+              <label for="msgInput" class="form-label">Mensaje (opcional)</label>
+              <textarea class="form-control" id="msgInput" rows="2" placeholder="¿Algo que quieras contarme? 😊"></textarea>
             </div>
           </form>
           
           <div class="d-grid gap-2 mt-4">
             <button type="submit" form="rsvpForm" class="btn btn-accent" id="submitRsvp">
-              <i class="bi bi-check-circle"></i> Confirmar Asistencia
+              <i class="bi bi-check-circle"></i> Confirmar por WhatsApp
             </button>
-            <a id="whatsappLink" class="btn btn-success" href="#" target="_blank" rel="noopener">
-              <i class="bi bi-whatsapp"></i> Confirmar por WhatsApp
-            </a>
+          </div>
+          
+          <div class="mt-3 text-center">
+            <small class="text-muted">Al confirmar, se abrirá WhatsApp con un mensaje listo para enviar</small>
           </div>
         </div>
       </div>

@@ -265,90 +265,144 @@ body {
   transform: translateY(-2px);
 }
 
-/* Responsive adjustments */
-@media (max-width: 576px) {
-  .hero-inner {
-    padding: 15px 10px;
-  }
-  
-  .title {
-    font-size: 1.3rem;
-  }
-  
-  .lead {
-    font-size: 0.95rem;
-  }
-  
-  /* Ajustes para móviles */
-  .profile img {
-    width: 280px;
-    height: 280px;
-  }
-  
-  .river-logo {
-    width: 50px;
-    height: 50px;
-    bottom: 10px;
-    right: 10px;
-  }
-  
-  .music-player {
-    top: 15px;
-    right: 15px;
-  }
-  
-  .music-player .btn {
-    padding: 6px 12px;
-    font-size: 0.8rem;
-  }
-  
-  .icons-row .nav-icon i {
-    font-size: 1.3rem;
-    padding: 10px;
-  }
-  
-  .modal-dialog {
-    margin: 20px 10px;
-  }
+/* Estilos para el calendario */
+.calendar-container {
+  border: 2px solid #b60b10;
+  border-radius: 15px;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
 }
 
-@media (max-width: 360px) {
-  .title {
-    font-size: 1.2rem;
-  }
-  
-  .hero-inner {
-    padding: 10px 5px;
-  }
-  
-  /* Ajustes para móviles muy pequeños */
-  .profile img {
-    width: 250px;
-    height: 250px;
-  }
-  
-  .river-logo {
-    width: 45px;
-    height: 45px;
-    bottom: 8px;
-    right: 8px;
-  }
-  
-  .icons-row .nav-icon .small {
-    font-size: 0.7rem;
-  }
+.calendar-header {
+  background: linear-gradient(135deg, #b60b10, #a10406) !important;
 }
 
-/* Safe area for notched phones */
-@supports(padding: max(0px)) {
-  .hero-inner, .modal-dialog {
-    padding-left: max(15px, env(safe-area-inset-left));
-    padding-right: max(15px, env(safe-area-inset-right));
-  }
-  
-  .music-player {
-    right: max(20px, env(safe-area-inset-right));
-  }
+.calendar-date-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.date-number {
+  font-size: 4rem !important;
+  line-height: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.date-info {
+  text-align: left;
+}
+
+.day-name {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.month-year {
+  font-weight: 600;
+}
+
+.time-display {
+  padding: 15px;
+  border-top: 1px solid #dee2e6;
+}
+
+.clock-icon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.time-text {
+  font-weight: 700;
+  color: #b60b10 !important;
+}
+
+.event-countdown {
+  background: linear-gradient(135deg, #b60b10, #a10406) !important;
+  animation: countdownPulse 3s infinite;
+}
+
+@keyframes countdownPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Estilos para el contador regresivo */
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  text-align: center;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 12px;
+  border-radius: 8px;
+  min-width: 50px;
+  display: inline-block;
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 5px;
+  opacity: 0.9;
+}
+
+/* Estilos para el mapa */
+.map-container {
+  border: 2px solid #b60b10;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.map-container iframe {
+  border: none;
+}
+
+/* Botón de abrir en Google Maps */
+.btn-outline-danger {
+  border-color: #b60b10;
+  color: #b60b10;
+}
+
+.btn-outline-danger:hover {
+  background-color: #b60b10;
+  color: white;
+}
+
+/* Estilos para el cartel dividido */
+.calendar-container {
+  border: 2px solid #dee2e6;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.calendar-header.bg-warning {
+  background: linear-gradient(135deg, #ffc107, #ffb300) !important;
+}
+
+.cake-icon i {
+  font-size: 1.5rem;
 }
 
 /* Animación de Papel Picado - Solo rojo y blanco */
@@ -435,24 +489,9 @@ body {
 }
 
 /* Formas diferentes de papel picado */
-.confetti:nth-child(odd) {
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Diamante */
-}
 
 .confetti:nth-child(even) {
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); /* Cuadrado */
-}
-
-.confetti:nth-child(3n) {
-  clip-path: circle(50% at 50% 50%); /* Círculo */
-}
-
-.confetti:nth-child(5n) {
-  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); /* Estrella */
-}
-
-.confetti:nth-child(7n) {
-  clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%); /* Cruz */
 }
 
 /* Efectos de sombra para dar profundidad */
@@ -464,137 +503,73 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para el calendario */
-.calendar-container {
-  border: 2px solid #b60b10;
+/* Modal más grande para el mapa */
+.modal-lg .modal-content {
   border-radius: 15px;
-  overflow: hidden;
-  font-family: 'Montserrat', sans-serif;
 }
 
-.calendar-header {
-  background: linear-gradient(135deg, #b60b10, #a10406) !important;
-}
-
-.calendar-date-display {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 10px;
-}
-
-.date-number {
-  font-size: 4rem !important;
-  line-height: 1;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.date-info {
-  text-align: left;
-}
-
-.day-name {
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.month-year {
-  font-weight: 600;
-}
-
-.time-display {
-  padding: 15px;
-  border-top: 1px solid #dee2e6;
-}
-
-.clock-icon {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-.time-text {
-  font-weight: 700;
-  color: #b60b10 !important;
-}
-
-.event-countdown {
-  background: linear-gradient(135deg, #b60b10, #a10406) !important;
-  animation: countdownPulse 3s infinite;
-}
-
-@keyframes countdownPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-  100% { transform: scale(1); }
-}
-
-/* Ajustes para móviles en el calendario */
+/* Responsive adjustments */
 @media (max-width: 576px) {
+  .hero-inner {
+    padding: 15px 10px;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .lead {
+    font-size: 0.95rem;
+  }
+  
+  /* Ajustes para móviles */
+  .profile img {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .river-logo {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .music-player {
+    top: 15px;
+    right: 15px;
+  }
+  
+  .music-player .btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .icons-row .nav-icon i {
+    font-size: 1.3rem;
+    padding: 10px;
+  }
+  
+  .modal-dialog {
+    margin: 20px 10px;
+  }
+  
+  /* Ajustes para el cartel dividido en móviles */
   .calendar-date-display {
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     text-align: center;
   }
   
   .date-number {
-    font-size: 3rem !important;
+    font-size: 2.5rem !important;
   }
   
   .date-info {
     text-align: center;
   }
-}
-
-/* Estilos para el contador regresivo */
-.countdown-timer {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  text-align: center;
-}
-
-.countdown-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.countdown-number {
-  font-size: 1.8rem;
-  font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 8px 12px;
-  border-radius: 8px;
-  min-width: 50px;
-  display: inline-block;
-}
-
-.countdown-label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  margin-top: 5px;
-  opacity: 0.9;
-}
-
-/* Estilos para el mapa */
-.map-container {
-  border: 2px solid #b60b10;
-  overflow: hidden;
-}
-
-.map-container iframe {
-  border: none;
-}
-
-/* Ajustes para móviles en el contador */
-@media (max-width: 576px) {
+  
+  /* Ajustes para el contador en móviles */
   .countdown-timer {
     gap: 10px;
   }
@@ -609,6 +584,7 @@ body {
     font-size: 0.6rem;
   }
   
+  /* Ajustes calendario móvil */
   .calendar-date-display {
     flex-direction: column;
     gap: 10px;
@@ -624,7 +600,100 @@ body {
   }
 }
 
-/* Modal más grande para el mapa */
-.modal-lg .modal-content {
-  border-radius: 15px;
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.2rem;
+  }
+  
+  .hero-inner {
+    padding: 10px 5px;
+  }
+  
+  /* Ajustes para móviles muy pequeños */
+  .profile img {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .river-logo {
+    width: 45px;
+    height: 45px;
+    bottom: 8px;
+    right: 8px;
+  }
+  
+  .icons-row .nav-icon .small {
+    font-size: 0.7rem;
+  }
+  
+  /* Ajustes contador móviles muy pequeños */
+  .countdown-timer {
+    gap: 8px;
+  }
+  
+  .countdown-number {
+    font-size: 1.2rem;
+    padding: 4px 8px;
+    min-width: 35px;
+  }
+  
+  .countdown-label {
+    font-size: 0.5rem;
+  }
+}
+
+/* Safe area for notched phones */
+@supports(padding: max(0px)) {
+  .hero-inner, .modal-dialog {
+    padding-left: max(15px, env(safe-area-inset-left));
+    padding-right: max(15px, env(safe-area-inset-right));
+  }
+  
+  .music-player {
+    right: max(20px, env(safe-area-inset-right));
+  }
+}
+
+/* Estilos para el formulario simplificado */
+.form-control:focus {
+  border-color: #b60b10;
+  box-shadow: 0 0 0 0.2rem rgba(182, 11, 16, 0.25);
+}
+
+/* Smooth transitions for all interactive elements */
+.btn, .nav-icon, .form-control, .form-select {
+  transition: all 0.3s ease;
+}
+
+/* Loading states */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Focus states for accessibility */
+.btn:focus,
+.form-control:focus,
+.form-select:focus {
+  outline: none;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-red);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-red-strong);
 }
