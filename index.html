@@ -33,9 +33,14 @@
     <section class="section-hero text-center position-relative overflow-hidden">
       <div class="river-band"></div>
       <div class="hero-inner py-4">
-        <h1 class="display-5 title text-uppercase">¡27 años y la fiesta es monumental!</h1>
-        <p class="lead mb-1">Te invito a celebrar mi cumpleaños</p>
-        <p class="meta small mb-3" id="dateText">SSS</p>
+        
+        <!-- NUEVO TEXTO -->
+        <div class="new-title-container mb-3">
+          <p class="lead mb-2">Te invito a celebrar mi cumpleaños</p>
+          <h1 class="display-1 title-number text-uppercase">27</h1>
+        </div>
+
+        <p class="meta small mb-3" id="dateText">Domingo, 7 de Diciembre • 21:00 hs</p>
 
         <div class="profile-container mx-auto mb-3 position-relative">
           <div class="profile">
@@ -48,25 +53,19 @@
         </div>
 
         <div class="row icons-row text-center gx-2 justify-content-center mb-3">
-          <div class="col-3">
-            <a href="#" class="nav-icon" data-bs-toggle="modal" data-bs-target="#homeModal">
-              <i class="bi bi-house-fill"></i>
-              <div class="small">Home</div>
-            </a>
-          </div>
-          <div class="col-3">
+          <div class="col-4">
             <a href="#" class="nav-icon" data-bs-toggle="modal" data-bs-target="#dateModal">
               <i class="bi bi-calendar-event-fill"></i>
               <div class="small">Fecha y Hora</div>
             </a>
           </div>
-          <div class="col-3">
+          <div class="col-4">
             <a href="#" class="nav-icon" data-bs-toggle="modal" data-bs-target="#whereModal">
               <i class="bi bi-geo-alt-fill"></i>
               <div class="small">¿Dónde es?</div>
             </a>
           </div>
-          <div class="col-3">
+          <div class="col-4">
             <a href="#" class="nav-icon" data-bs-toggle="modal" data-bs-target="#giftsModal">
               <i class="bi bi-gift-fill"></i>
               <div class="small">Regalos</div>
@@ -80,28 +79,6 @@
       </div>
     </section>
   </main>
-
-  <!-- Modal Home -->
-  <div class="modal fade" id="homeModal" tabindex="-1" aria-labelledby="homeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="homeModalLabel">¡Bienvenido!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>¡Hola! Estás invitado a celebrar mis 27 años.</p>
-          <p><strong>Fiesta:</strong> Domingo, 7 de Diciembre 2025 - 21:00 hs</p>
-          <p><strong>Cumpleaños:</strong> Lunes, 8 de Diciembre 2025</p>
-          <p><strong>Lugar:</strong> Mi casa - Barrio 30 de Octubre</p>
-          <p>¡Espero que puedas venir a compartir este día especial conmigo!</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Modal Fecha y Hora -->
   <div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
@@ -242,7 +219,7 @@
     </div>
   </div>
 
-  <!-- Modal RSVP - SIMPLIFICADO -->
+  <!-- Modal RSVP -->
   <div class="modal fade" id="rsvpModal" tabindex="-1" aria-labelledby="rsvpModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -251,7 +228,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>¡Confirmá tu asistencia con un solo clic! Solo necesitamos tu nombre o apodo.</p>
+          <p>¡Confirmá tu asistencia con un solo clic!</p>
           
           <form id="rsvpForm">
             <div class="mb-3">
